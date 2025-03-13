@@ -1,0 +1,13 @@
+[
+    {
+      "title": "The Hobbit",
+      "author": "J.R.R. Tolkien",
+      "available": true
+    },
+    {
+      "title": "1984",
+      "author": "George Orwell",
+      "available": false
+    }
+  ]
+  
