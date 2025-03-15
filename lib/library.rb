@@ -26,8 +26,14 @@ class Library
     File.write('./lib/books.json', JSON.pretty_generate(@books))
   end
   def checkout_book(title)
-    book  = @books.find { |book| book[:title] == title }
-    book[:available] = false if book && book[:available]
-    book[:return_date] = Date.today + 30
+    book = @books.find { |book| book[:title] == title }
+  if book && book[:available]
+    book[:available] = false
+    book[:return_date] = Date.today + 30 
+  end
+  end
+  def return_date(title)
+    book = @books.find { |book| book[:title] == title }
+    book ? book[:return_date] : nil
   end
 end

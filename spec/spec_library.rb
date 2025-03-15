@@ -20,5 +20,10 @@ describe Library do
     expect(book[:return_date]).to eq(Date.today + 30)
     expect(book[:available]).to eq false
   end
+  it 'should return a return date on checkout' do 
+    library.checkout_book("The Hobbit")
+    return_date = library.return_date("The Hobbit")
+    expect(return_date).to eq(Date.today + 30)
+  end
   
 end
