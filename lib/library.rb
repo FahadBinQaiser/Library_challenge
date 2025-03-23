@@ -42,7 +42,7 @@ class Library
       file = File.read('./lib/books.json')
       @books = JSON.parse(file, symbolize_names: true)
     else
-      []
+      @books = []
     end
   end
 

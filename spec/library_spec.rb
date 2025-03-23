@@ -14,7 +14,8 @@ describe Library do
     library.checkout_book(book_title)
 
     available_books = library.list_books
-    expect(available_books).not_to include('The Hobbit by J.R.R Tolkien')
+    expect(available_books).not_to include('The Hobbit by J.R.R. Tolkien')
+
   end
   it 'returns a date when a book is checked out' do
     library.checkout_book('The Hobbit')
