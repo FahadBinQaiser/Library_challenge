@@ -2,12 +2,12 @@
 
 require './lib/library'
 
-describe Library do
+describe Library do # rubocop:disable Metrics/BlockLength
   let(:library) { Library.new }
 
   it 'shows a list of available books' do
     expected_books = library.books.select { |book| book[:available] }
-    .map { |book| "#{book[:item][:title]} by #{book[:item][:author]}" }
+                            .map { |book| "#{book[:item][:title]} by #{book[:item][:author]}" }
     expect(library.list_books).to eq(expected_books)
   end
 

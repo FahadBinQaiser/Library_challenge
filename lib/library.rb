@@ -3,6 +3,7 @@
 require 'yaml'
 require 'date'
 
+# Library class that allows users to check out books
 class Library
   attr_reader :books
 
@@ -18,10 +19,10 @@ class Library
     @books.select { |book| book[:available] }
           .map { |book| "#{book[:item][:title]} by #{book[:item][:author]}" }
   end
-  
+
   def checkout_book(title)
     book = find_book(title)
-    return "Book not found or unavailable" unless book && book[:available]
+    return 'Book not found or unavailable' unless book && book[:available]
 
     book[:available] = false
     book[:return_date] = (Date.today + 30).to_s
