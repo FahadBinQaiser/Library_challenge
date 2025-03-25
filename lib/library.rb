@@ -1,52 +1,42 @@
 # frozen_string_literal: true
 
-require 'json'
+require 'yaml'
 require 'date'
 
-# A Library that manages collection of books and allows users to checkout
 class Library
   attr_reader :books
 
   def initialize
-    load_books
+    @books = YAML.load_file('./lib/data.yml') || []
   end
 
-  def add_books(book)
-    @books << book
-    save_books
+  def find_book(title)
+    @books.find { |b| b[:item][:title].casecmp?(title) }
   end
 
   def list_books
-    available_books = @books.select { |book| book[:available] }
-    available_books.map { |b| "#{b[:title]} by #{b[:author]}" }
+    @books.select { |book| book[:available] }
+          .map { |book| "#{book[:item][:title]} by #{book[:item][:author]}" }
   end
-
+  
   def checkout_book(title)
-    book = @books.find { |b| b[:title] == title }
-
-    return unless book && book[:available]
+    book = find_book(title)
+    return "Book not found or unavailable" unless book && book[:available]
 
     book[:available] = false
-    book[:return_date] = Date.today + 30
+    book[:return_date] = (Date.today + 30).to_s
+    save_books
+    "Checked out '#{title}'. Return by #{book[:return_date]}."
   end
 
   def return_date(title)
-    book = @books.find { |b| b[:title] == title }
-    book ? book[:return_date] : nil
+    book = find_book(title)
+    book ? book[:return_date] : "No return date found for '#{title}'."
   end
 
   private
 
-  def load_books
-    if File.exist?('./lib/books.json')
-      file = File.read('./lib/books.json')
-      @books = JSON.parse(file, symbolize_names: true)
-    else
-      @books = []
-    end
-  end
-
   def save_books
-    File.write('./lib/books.json', JSON.pretty_generate(@books))
+    File.write('./lib/data.yml', YAML.dump(@books))
   end
 end
