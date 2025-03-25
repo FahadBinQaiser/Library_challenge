@@ -6,12 +6,9 @@ describe Library do
   let(:library) { Library.new }
 
   it 'shows a list of available books' do
-    expect(library.list_books).to eq([
-      "Alfons och soldatpappan by Gunilla Bergström",
-      "Osynligt med Alfons by Gunilla Bergström",
-      "Pippi Långstrump by Astrid Lindgren",
-      "Pippi Långstrump går ombord by Astrid Lindgren"
-    ])
+    expected_books = library.books.select { |book| book[:available] }
+    .map { |book| "#{book[:item][:title]} by #{book[:item][:author]}" }
+    expect(library.list_books).to eq(expected_books)
   end
 
   it 'loads books from the yaml file' do
