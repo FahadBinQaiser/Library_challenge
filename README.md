@@ -1,6 +1,6 @@
 # Library Challenge
 
-#### An Library project that allows a user to:
+#### A Library project that allows a user to:
 
 ⚪ See the list of available books. <br>
 ⚪ Checkout a book if it's available. <br>
@@ -22,22 +22,39 @@ After cloning, run **bundle install** in your terminal.
 
 1) irb
 
-### Then load the file using require
+### Then load the files using require
 
-2) require './lib/library.rb'
+2) require './lib/library'
+3) require './lib/person'
 
 ### Create a library instance
 
 3) library = Library.new
-library.list_books
+4) library.list_books
+
+### Create a person instance
+
+4) person = Person.new("Fahad")
+5) person.books_list 
 
 ### For checking out a book, type
 
-4) library.checkout_book("The Hobbit")
+5) book_title = 'Alfons och soldatpappan'
+6) library.checkout_book(book_title, person)
 
-### Check return date (optional not imp but a command to show a method :) 
+### Check person books_list and library books
 
-5) library.return_date("The Hobbit")
+#### For person list,
+
+7) person.books_list
+
+#### For library list,
+
+8) library.list_books
+
+### Check return date 
+
+9) library.return_date(book_title)
 
 ### License
 This project is licensed under the MIT license, See the license file for more information.
