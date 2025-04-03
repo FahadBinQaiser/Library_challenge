@@ -24,22 +24,22 @@ After cloning, run **bundle install** in your terminal.
 
 ### Then load the files using require
 
-⚪ require './lib/library'
+⚪ require './lib/library' <br>
 ⚪ require './lib/person'
 
 ### Create a library instance
 
-⚪ library = Library.new
+⚪ library = Library.new <br>
 ⚪ library.list_books
 
 ### Create a person instance
 
-⚪ person = Person.new("Fahad")
+⚪ person = Person.new("Fahad") <br>
 ⚪ person.books_list 
 
 ### For checking out a book, type
 
-⚪ book_title = 'Alfons och soldatpappan'
+⚪ book_title = 'Alfons och soldatpappan' <br>
 ⚪ library.checkout_book(book_title, person)
 
 ### Check person books_list and library books
