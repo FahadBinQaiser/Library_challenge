@@ -20,41 +20,41 @@ After cloning, run **bundle install** in your terminal.
 
 ## Type IRB in your terminal
 
-1) irb
+⚪ irb
 
 ### Then load the files using require
 
-2) require './lib/library'
-3) require './lib/person'
+⚪ require './lib/library'
+⚪ require './lib/person'
 
 ### Create a library instance
 
-3) library = Library.new
-4) library.list_books
+⚪ library = Library.new
+⚪ library.list_books
 
 ### Create a person instance
 
-4) person = Person.new("Fahad")
-5) person.books_list 
+⚪ person = Person.new("Fahad")
+⚪ person.books_list 
 
 ### For checking out a book, type
 
-5) book_title = 'Alfons och soldatpappan'
-6) library.checkout_book(book_title, person)
+⚪ book_title = 'Alfons och soldatpappan'
+⚪ library.checkout_book(book_title, person)
 
 ### Check person books_list and library books
 
 #### For person list,
 
-7) person.books_list
+⚪ person.books_list
 
 #### For library list,
 
-8) library.list_books
+⚪ library.list_books
 
 ### Check return date 
 
-9) library.return_date(book_title)
+⚪ library.return_date(book_title)
 
 ### License
 This project is licensed under the MIT license, See the license file for more information.
