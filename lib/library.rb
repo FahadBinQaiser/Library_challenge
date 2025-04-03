@@ -12,7 +12,7 @@ class Library
     @available = true
     @books = YAML.load_file('./lib/data.yml') || []
     @books.each do |book|
-      book[:available] = true 
+      book[:available] = true
       book[:return_date] = nil
     end
   end
@@ -29,15 +29,14 @@ class Library
   def checkout_book(book_title, person)
     book = find_book(book_title)
     return 'Book not found or unavailable' unless book && book[:available]
-      
-      book[:available] = false
-      book[:return_date] = Date.today + 30
-      borrowed_book = { title: book[:item][:title], author: book[:item][:author], return_date: book[:return_date] }
 
-      person.books_list << borrowed_book
-      return "Checked out '#{book_title}'. Return by #{book[:return_date]}."
-    end
-  
+    book[:available] = false
+    book[:return_date] = Date.today + 30
+    borrowed_book = { title: book[:item][:title], author: book[:item][:author], return_date: book[:return_date] }
+
+    person.books_list << borrowed_book
+    "Checked out '#{book_title}'. Return by #{book[:return_date]}."
+  end
 
   def return_date(title)
     book = find_book(title)

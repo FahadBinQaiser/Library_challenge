@@ -5,7 +5,7 @@ require_relative '../lib/person'
 
 describe Library do # rubocop:disable Metrics/BlockLength
   let(:library) { Library.new }
-  let(:person) { Person.new("Fahad") }
+  let(:person) { Person.new('Fahad') }
 
   it 'shows a list of available books' do
     expected_books = library.books.select { |book| book[:available] }
