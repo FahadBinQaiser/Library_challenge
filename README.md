@@ -6,10 +6,12 @@
 ⚪ Checkout a book if it's available. <br>
 ⚪ Have a return date on a book checkout. <br>
 
+```
 ## Dependencies
 
 Ruby ( Ruby 3.3.7 (2025-01-15 revision be31f993d7) [x64-mingw-ucrt])<br>
 RSpec
+```
 
 ## Setup:
 Clone my repository using the web URL:
