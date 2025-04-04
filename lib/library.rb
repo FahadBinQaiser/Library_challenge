@@ -26,9 +26,13 @@ class Library
           .map { |book| "#{book[:item][:title]} by #{book[:item][:author]}" }
   end
 
+  # rubocop:disable Metrics/AbcSize
   def checkout_book(book_title, person)
     book = find_book(book_title)
-    return 'Book not found or unavailable' unless book && book[:available]
+
+    return 'Book title cannot be empty.' if book_title.empty?
+    return 'Sorry, this book is not available.' unless book && book[:available]
+    return 'Account cannot be nil (Invalid Person)' if person.nil? || person.name.empty?
 
     book[:available] = false
     book[:return_date] = Date.today + 30
@@ -37,6 +41,7 @@ class Library
     person.books_list << borrowed_book
     "Checked out '#{book_title}'. Return by #{book[:return_date]}."
   end
+  # rubocop:enable Metrics/AbcSize
 
   def return_date(title)
     book = find_book(title)

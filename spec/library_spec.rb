@@ -41,4 +41,37 @@ describe Library do # rubocop:disable Metrics/BlockLength
 
     expect(return_date).to eq(Date.today + 30)
   end
+
+  # Sad path tests
+
+  it 'does not allow checkout of a checked-out book' do
+    book_title = 'The Hobbit'
+    result = library.checkout_book(book_title, person)
+
+    expect(result).to eq('Sorry, this book is not available.')
+    expect(person.books_list).to be_empty
+  end
+
+  it 'does not allow checkout of a non-existent book' do
+    book_title = 'The Hobbit'
+    result = library.checkout_book(book_title, person)
+
+    expect(result).to eq('Sorry, this book is not available.')
+    expect(person.books_list).to be_empty
+  end
+
+  it 'showcases book_title not to be empty' do
+    book_title = ''
+    result = library.checkout_book(book_title, person)
+
+    expect(result).to eq('Book title cannot be empty.')
+    expect(person.books_list).to be_empty
+  end
+
+  it 'does not allow checkout if person is nil' do
+    book_title = 'Pippi Långstrump'
+    result = library.checkout_book(book_title, nil)
+
+    expect(result).to eq('Account cannot be nil (Invalid Person)')
+  end
 end
