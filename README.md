@@ -22,34 +22,34 @@ After cloning, run **bundle install** in your terminal.
 
 ## Type IRB in your terminal
 
-``` 
+```
 ⚪ irb
 ```
 
-```ruby
 Then load the files using require
 
+```ruby
 ⚪ require './lib/library'
 ⚪ require './lib/person'
 ```
 
-```ruby
 Create a library instance
 
+```ruby
 ⚪ library = Library.new 
 ⚪ library.list_books
 ```
 
-```ruby
 Create a person instance
 
+```ruby
 ⚪ person = Person.new("Fahad") 
 ⚪ person.books_list 
 ```
 
-```ruby
 For checking out a book, type
 
+```ruby
 ⚪ book_title = 'Alfons och soldatpappan'
 ⚪ library.checkout_book(book_title, person)
 ```
