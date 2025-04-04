@@ -33,34 +33,45 @@ Then load the files using require
 ⚪ require './lib/person'
 ```
 
-### Create a library instance
+```ruby
+Create a library instance
 
-⚪ library = Library.new <br>
+⚪ library = Library.new 
 ⚪ library.list_books
+```
 
-### Create a person instance
+```ruby
+Create a person instance
 
-⚪ person = Person.new("Fahad") <br>
+⚪ person = Person.new("Fahad") 
 ⚪ person.books_list 
+```
 
-### For checking out a book, type
+```ruby
+For checking out a book, type
 
-⚪ book_title = 'Alfons och soldatpappan' <br>
+⚪ book_title = 'Alfons och soldatpappan'
 ⚪ library.checkout_book(book_title, person)
+```
 
 ### Check person books_list and library books
 
-#### For person list,
+```ruby
+For person list,
 
 ⚪ person.books_list
 
-#### For library list,
+For library list,
 
 ⚪ library.list_books
 
+```
+
 ### Check return date 
 
+```ruby
 ⚪ library.return_date(book_title)
+```
 
 ### License
 This project is licensed under the MIT license, See the license file for more information.
