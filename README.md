@@ -56,15 +56,15 @@ For checking out a book, type
 
 ### Check person books_list and library books
 
-```ruby
 For person list,
 
+```ruby
 ⚪ person.books_list
-
+```
 For library list,
 
+```ruby
 ⚪ library.list_books
-
 ```
 
 ### Check return date 
