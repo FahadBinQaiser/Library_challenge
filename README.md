@@ -22,12 +22,16 @@ After cloning, run **bundle install** in your terminal.
 
 ## Type IRB in your terminal
 
+``` 
 ⚪ irb
+```
 
+```
 ### Then load the files using require
 
 ⚪ require './lib/library' <br>
 ⚪ require './lib/person'
+```
 
 ### Create a library instance
 
