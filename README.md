@@ -26,10 +26,10 @@ After cloning, run **bundle install** in your terminal.
 ⚪ irb
 ```
 
-```
-### Then load the files using require
+```ruby
+Then load the files using require
 
-⚪ require './lib/library' <br>
+⚪ require './lib/library'
 ⚪ require './lib/person'
 ```
 
